@@ -13,6 +13,11 @@ java {
     }
 }
 
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
 
 repositories {
     mavenCentral()
@@ -28,6 +33,12 @@ dependencies {
     testImplementation 'io.projectreactor:reactor-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+    // lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Netty DNS resolver for mac silicon
+    implementation('io.netty:netty-all:4.1.73.Final')
 }
 
 tasks.named('test') {
