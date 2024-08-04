@@ -32,7 +32,9 @@ public class HotSequenceExample {
                 + " / " + Thread.activeCount()
                 + "] # Subscriber2 is watching {}'s song.", singer));
 
-        TimeUtils.sleep(3000);
+        TimeUtils.sleep(3000); // 메인 스레드를 살려두기 위한 sleep
         log.info("Sequence fin. Current active thread count is " + Thread.activeCount());
+
+        // TODO: 데이터 발행마다 parallel 스레드가 하나씩 생기는데...관련 내용 정확히 확인하기
     }
 }
